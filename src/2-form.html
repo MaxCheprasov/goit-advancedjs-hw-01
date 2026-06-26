@@ -4,21 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gallery</title>
+    <title>Feedback Form · HW-01</title>
     <link rel="stylesheet" href="./css/feedback.css" />
     <script src="./js/2-form.js" type="module" defer></script>
   </head>
   <body>
-    <form class="feedback-form" autocomplete="off">
-      <label>
-        Email
-        <input type="email" name="email" autofocus />
-      </label>
-      <label>
-        Message
-        <textarea name="message" rows="8"></textarea>
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+    <div class="page">
+      <a class="back-link" href="./">← Back</a>
+      <div class="card">
+        <h1 class="card-title">Feedback Form</h1>
+        <p class="card-sub">Your message is saved automatically while you type</p>
+        <form class="feedback-form" autocomplete="off">
+          <label class="field-label">
+            Email
+            <input class="field-input" type="email" name="email" autofocus placeholder="your@email.com" />
+          </label>
+          <label class="field-label">
+            Message
+            <textarea class="field-input field-textarea" name="message" rows="6" placeholder="Write your message here..."></textarea>
+          </label>
+          <button class="submit-btn" type="submit">Send message</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

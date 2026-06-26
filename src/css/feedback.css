@@ -1,52 +1,123 @@
 @import url('./reset.css');
 @import url('izitoast/dist/css/iziToast.min.css');
 
+:root {
+  --bg: #111827;
+  --surface: #1f2937;
+  --accent: #6366f1;
+  --text: #f9fafb;
+  --muted: rgba(249, 250, 251, 0.5);
+  --border: rgba(255, 255, 255, 0.1);
+  --input-bg: rgba(255, 255, 255, 0.05);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.page {
+  width: 100%;
+  max-width: 500px;
+}
+
+.back-link {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: color 180ms;
+}
+.back-link:hover { color: var(--text); }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.card-sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
 .feedback-form {
   display: flex;
   flex-direction: column;
-  width: 600px;
-  padding: 40px;
-  margin: 0 auto;
-  box-shadow: 0 10px 10px 0 #cccccc;
+  gap: 16px;
 }
 
-.feedback-form input,
-.feedback-form textarea {
+.field-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.field-input {
   width: 100%;
-  height: 40px;
-  padding: 16px;
-  padding-left: 15px;
-  border: 1px solid #303030;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  padding: 11px 14px;
+  font-size: 15px;
+  font-family: inherit;
+  background: var(--input-bg);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 180ms, box-shadow 180ms;
 }
 
-.feedback-form textarea {
-  height: unset;
-  min-height: 128px;
-  max-width: 100%;
-  resize: none;
+.field-input::placeholder { color: rgba(249, 250, 251, 0.2); }
+
+.field-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
-.feedback-form label {
-  min-height: 120px;
-  padding: 15px;
-  border: 1px solid #303030;
-  resize: none;
-  margin-bottom: 20px;
+.field-textarea {
+  resize: vertical;
+  min-height: 130px;
 }
 
-.feedback-form button[type='submit'] {
-  padding: 10px 20px;
-  background-color: transparent;
-  border: 1px solid #303030;
-  border-radius: 4px;
+.submit-btn {
+  margin-top: 4px;
+  padding: 13px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
-  align-self: center;
-  transition: transform 250ms linear;
+  transition: background 180ms, transform 120ms;
 }
 
-.feedback-form button[type='submit']:hover,
-.feedback-form button[type='submit']:focus {
-  transform: scale(1.05);
+.submit-btn:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
 }
+
+.submit-btn:active { transform: translateY(0); }
